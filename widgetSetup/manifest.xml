@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget id="oddc.widget.helloworld" builder="3.0.0" icon="/res/images/caffeine.svg">
+    <information>
+        <name lang="de-DE">Hello World</name>
+        <version>3.0.4</version>
+        <author>
+            <company>opta data Gruppe</company>
+            <telephone>0201 / 3 19 60</telephone>
+            <fax>0201 89074499</fax>
+            <email>service@optadata-gruppe.de</email>
+            <web>http://www.optadata-gruppe.de</web>
+        </author>
+        <developer>
+            <name>Dennis Lehmann</name>
+            <email>d.lehmann@optadata-gruppe.de</email>
+        </developer>
+        <summary lang="de-DE">
+            <image>/res/images/widget.png</image>
+            <text type="textile">
+                "Hello World" example widget short description
+            </text>
+        </summary>
+        <description lang="de-DE">
+            <media>
+                <image>/res/images/example1.jpg</image>
+                <image>/res/images/example2.jpg</image>
+                <image>/res/images/example3.jpg</image>
+            </media>
+            <text type="textile"> 
+                "Hello World" example widget long description
+            </text>
+        </description>
+        <tags>kostenlos,opta data</tags>
+        <appearance>
+            <text-appearance>light</text-appearance>
+            <main-color>#0a94df</main-color>
+        </appearance>
+        <link>https://github.com/oddc/oddc.widget.helloworld</link>
+    </information>
+    <ressources>
+        <templates lang="de-DE">
+            <template cols="1" rows="1" markup="/src/app.html">
+                <styles>
+                    <style>/res/styles/animations.css</style>
+                </styles>
+                <scripts>
+                    <script>/src/app.js</script>
+                    <script>/src/components/helloWorld.component/helloWorld.component.js</script>
+                    <script>/src/components/configuration.component/configuration.component.js</script>
+                </scripts>
+            </template>
+        </templates>    
+    </ressources>
+</widget>
