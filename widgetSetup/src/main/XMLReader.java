@@ -98,6 +98,16 @@ public class XMLReader {
 	}
 	
 	
+	public String getMarkupPath() {
+		if(!this.ok) return null;
+		
+		Element templates = this.getRessource().getChildren("templates").get(0);
+		Element template = templates.getChildren("template").get(0);
+		
+		return template.getAttributeValue("markup");
+	}
+	
+	
 	public String getWidgetId() {
 		if(!this.ok) return null;
 		

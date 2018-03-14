@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -31,7 +32,7 @@ public class TemplateCreator {
 		if(!this.isOK()) return false;
 		
 		try {
-			
+
 			InputStream in = getClass().getResourceAsStream("/resources/index.dat");
 			BufferedReader br = new BufferedReader(new InputStreamReader(in));
 			
@@ -60,6 +61,9 @@ public class TemplateCreator {
 				    		bw.write("\t<link rel=\"stylesheet\" href=\"" + styles + "\">");
 				    		bw.newLine();
 				    	}
+				    }
+				    else if(placeholder.equals("{{markup}}")) {
+				    	this.writeMarkup(bw);
 				    }
 				    else if(placeholder.equals("{{title}}")) {
 				    	line = line.replace("{{title}}", xml.getWidgetName());
@@ -125,6 +129,25 @@ public class TemplateCreator {
 		}
 		
 		return true;
+	}
+	
+	
+	private void writeMarkup(BufferedWriter fHandle) throws Exception {
+		String path = xml.getMarkupPath();
+		if(path.charAt(0) == '/') {
+			path = path.substring(1);
+		}
+    	
+    	FileReader file = new FileReader(path);
+		BufferedReader br = new BufferedReader(file);
+		
+		String line = "";
+		while((line = br.readLine()) != null) {
+			fHandle.write("\t" + line);
+			fHandle.newLine();
+		}
+		
+		br.close();
 	}
 	
 }
